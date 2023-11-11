@@ -28,6 +28,19 @@ export class NavbarComponent {
       route: '/aboutus'
     },
   ]
+  menusIsOpen = false
+  toggleMenu(){
+    this.menusIsOpen = !this.menusIsOpen
+    const navLinks = document.querySelector('#navLinks')!
+    const barUn = document.querySelector('#bar-un')!
+    const barDeux = document.querySelector('#bar-deux')!
+    const btnMenu = document.querySelector('#btn-menu')!
+
+    barUn.classList.toggle('rotate-90')
+    barDeux.classList.toggle('-translate-y-3')
+    btnMenu.classList.toggle('rotate-45')
+    navLinks.classList.toggle('-translate-y-[1000rem]')
+  }
   
 }
 

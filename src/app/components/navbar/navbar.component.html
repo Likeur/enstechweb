@@ -1,10 +1,14 @@
-<nav class="flex justify-between p-2 lg:p-4 bg-white border-b">
+<nav class="flex justify-between items-center p-4 bg-white border-b">
     <div>
         <a routerLink="/landing" class="text-2xl">EnstechWeb</a>
     </div>
-    <ul class="flex">
+    <ul id="navLinks" class="flex flex-col -translate-y-[1000rem] duration-300 absolute bg-white z-20 p-4 top-0 right-0 h-screen w-80 border-l">
         @for (item of navItems; track item.id) {
-            <li class="ml-5"><a routerLink="{{ item.route }}">{{ item.title }}</a></li>
+            <li (click)="toggleMenu()" class="ml-5 text-xl mt-5"><a routerLink="{{ item.route }}">{{ item.title }}</a></li>
         } 
     </ul>
+    <button id="btn-menu" (click)="toggleMenu()" class="relative z-50 duration-300">
+        <span id="bar-un" class="bg-gray-950 h-0.5 w-7 block duration-300"></span>
+        <span id="bar-deux" class="bg-gray-950 h-0.5 w-7 block mt-2 duration-300"></span>
+    </button>
 </nav>
