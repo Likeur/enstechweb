@@ -1,14 +1,17 @@
-<nav class="flex justify-between items-center p-4 bg-white border-b">
+<nav class="container mx-auto flex justify-between items-center p-4 ">
     <div>
-        <a routerLink="/landing" class="text-2xl">EnstechWeb</a>
+        <a routerLink="/landing" class="text-2xl dark:text-white font-bold">EnstechWeb</a>
     </div>
-    <ul id="navLinks" class="flex flex-col -translate-y-[1000rem] duration-300 absolute bg-white z-20 p-4 top-0 right-0 h-screen w-80 border-l">
+    <ul id="navLinks" class="flex flex-col lg:flex-row -translate-y-[1000rem] lg:-translate-y-0 duration-300 absolute lg:relative bg-white dark:bg-gray-950 lg:bg-transparent z-20 p-4 lg:p-0 top-0 right-0 h-screen lg:h-min w-80 lg:w-full lg:ml-10 border-l">
         @for (item of navItems; track item.id) {
-            <li (click)="toggleMenu()" class="ml-5 text-xl mt-5"><a routerLink="{{ item.route }}">{{ item.title }}</a></li>
+            <li (click)="toggleMenu()" class="ml-6 text-lg mt-5 lg:mt-0 dark:text-white hover:text-blue-600 duration-300"><a routerLink="{{ item.route }}" routerLinkActive="text-blue-600">{{ item.title }}</a></li>
         } 
     </ul>
-    <button id="btn-menu" (click)="toggleMenu()" class="relative z-50 duration-300">
-        <span id="bar-un" class="bg-gray-950 h-0.5 w-7 block duration-300"></span>
-        <span id="bar-deux" class="bg-gray-950 h-0.5 w-7 block mt-2 duration-300"></span>
-    </button>
+    <div class="flex items-center">
+        <button (click)="isDarkmode()" id="darkmode" class="text-2xl text-blue-950 bg-transparent h-8 w-8 flex justify-center duration-300 dark:text-yellow-400 items-center"><i id="darkmodeicon" class='bx bx-moon'></i></button>
+        <button id="btn-menu" (click)="toggleMenu()" class="relative ml-2 z-50 duration-300 lg:hidden">
+            <span id="bar-un" class="bg-gray-950 dark:bg-white rounded-full h-0.5 w-7 block duration-300"></span>
+            <span id="bar-deux" class="bg-gray-950 dark:bg-white rounded-full h-0.5 w-7 block mt-2 duration-300"></span>
+        </button>
+    </div>
 </nav>

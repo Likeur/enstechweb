@@ -24,8 +24,13 @@ export class NavbarComponent {
     },
     {
       id : 3,
-      title : 'apropos',
+      title : 'A propos',
       route: '/aboutus'
+    },
+    {
+      id : 4,
+      title : 'Contact',
+      route: '/Contact'
     },
   ]
   menusIsOpen = false
@@ -42,5 +47,21 @@ export class NavbarComponent {
     navLinks.classList.toggle('-translate-y-[1000rem]')
   }
   
+  isDarkmode(){
+    function darkmode(){
+      const darkMode = document.querySelector('#darkmode')!
+      const darkModeIcon = document.querySelector('#darkmodeicon')!
+
+      document.documentElement.classList.toggle('dark')
+      darkMode.classList.toggle('rotate-45')
+      if (document.documentElement.className == 'dark'){
+          darkModeIcon.className = 'bx bx-sun'
+      } else{
+          darkModeIcon.className = 'bx bx-moon'
+      }
+    }
+
+    darkmode()
+  }
 }
 
